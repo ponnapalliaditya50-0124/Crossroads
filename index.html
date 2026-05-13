@@ -10,7 +10,6 @@
 <style>
 /* ============================================================
    V4 PALETTE — Burgundy Ember + Ottoman Navy
-   Do not edit for content changes. Edit data/volumes.js only.
    ============================================================ */
 :root {
   --bg:        #EAD9C7;
@@ -46,7 +45,9 @@ main{position:relative;z-index:1;}
 .view{display:none;}
 .view.active{display:block;}
 
-/* INDEX */
+/* ============================================================
+   INDEX
+   ============================================================ */
 .index-hero{padding:108px 32px 52px;text-align:center;max-width:680px;margin:0 auto;}
 .index-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--wine);margin-bottom:20px;}
 .index-orn{width:60px;height:1px;background:var(--saffron);margin:0 auto 22px;position:relative;}
@@ -58,7 +59,7 @@ main{position:relative;z-index:1;}
 
 .vols-grid{padding:0 32px 100px;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:18px;}
 
-/* Volume card */
+/* Volume card — inner V4 .card with .palette bg */
 .vc-outer{background:var(--bg);border-radius:2px;position:relative;overflow:hidden;}
 .vc-inner{background:var(--card);border:1px solid var(--rule);border-radius:3px;margin:16px;padding:24px 22px 18px;box-shadow:0 1px 0 rgba(0,0,0,.02);cursor:pointer;transition:box-shadow .22s,transform .22s;}
 .vc-inner:hover:not(.locked){box-shadow:0 10px 28px -10px rgba(31,54,88,.2);transform:translateY(-2px);}
@@ -78,12 +79,17 @@ main{position:relative;z-index:1;}
 .vc-course-name{color:var(--ink);line-height:1.35;}
 .vc-note{border-top:1px solid var(--saffron);padding-top:9px;display:grid;grid-template-columns:auto 1fr;gap:9px;}
 .vc-note-lbl{font-family:'Instrument Serif',serif;font-style:italic;font-size:13px;color:var(--wine);white-space:nowrap;padding-top:1px;}
+.vc-note-txt{font-size:9.5px;line-height:1.55;color:var(--muted);font-style:italic;}
+/* Lock overlay */
 .vc-lock{position:absolute;inset:0;background:rgba(234,217,199,.56);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;pointer-events:none;}
 .vc-lock-icon{width:32px;height:32px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--rule);}
 .vc-lock-icon svg{width:14px;height:14px;color:var(--saffron);}
 .vc-lock-date{font-size:9px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);}
 
-/* VOLUME PAGE — Cover */
+/* ============================================================
+   VOLUME PAGE
+   ============================================================ */
+/* Cover */
 .vc-cover-wrap{min-height:100vh;padding:96px 32px 52px;display:flex;align-items:center;justify-content:center;}
 .vc-cover-frame{max-width:660px;width:100%;background:var(--card);border:1px solid var(--rule);border-radius:2px;box-shadow:0 32px 64px -24px rgba(0,0,0,.22),0 8px 18px -6px rgba(0,0,0,.1);}
 .vc-cover-body{padding:60px 48px;text-align:center;position:relative;}
@@ -131,7 +137,9 @@ main{position:relative;z-index:1;}
 .ch-div-title em{font-style:italic;color:var(--wine);}
 .ch-div-blurb{font-family:'Instrument Serif',serif;font-style:italic;font-size:13px;line-height:1.45;color:var(--muted);max-width:30ch;margin:12px auto 0;}
 
-/* RECIPE CARD — V4 Bazaar Card */
+/* ============================================================
+   RECIPE CARD — V4 Bazaar Card canonical
+   ============================================================ */
 .rec-wrap{padding:24px 32px 52px;max-width:800px;margin:0 auto;}
 .rec-pg{background:var(--bg);border-radius:2px;}
 .rec-card{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:30px 30px 24px;box-shadow:0 1px 0 rgba(0,0,0,.02);}
@@ -147,15 +155,11 @@ h2.rec-title em{font-style:italic;color:var(--wine);}
 .deck::first-letter{font-family:'Instrument Serif',serif;font-size:30px;float:left;line-height:.85;margin:4px 6px 0 0;color:var(--wine);}
 .photo-block{height:110px;margin:0 0 13px;border-radius:2px;position:relative;overflow:hidden;}
 .photo-block::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(31,54,88,.14));}
-
-/* Gradient photo placeholders — replace with real images via /assets/images/ */
 .ph1{background:radial-gradient(ellipse 60% 70% at 25% 30%,rgba(255,235,200,.35),transparent 65%),linear-gradient(135deg,#D3A45F,#A34734 55%,#2A405F);}
 .ph2{background:radial-gradient(ellipse 60% 70% at 25% 30%,rgba(255,235,200,.3),transparent 65%),linear-gradient(150deg,#B68B5C,#8B5A38 55%,#4A2B1C);}
 .ph3{background:radial-gradient(ellipse 60% 70% at 25% 30%,rgba(255,235,200,.3),transparent 65%),linear-gradient(160deg,#E8B65C,#C8893E 50%,#7A3826);}
 .ph4{background:radial-gradient(ellipse 60% 70% at 25% 30%,rgba(255,235,200,.3),transparent 65%),linear-gradient(140deg,#D9A058,#B85742 55%,#6D2A1F);}
 .ph5{background:radial-gradient(ellipse 60% 70% at 25% 30%,rgba(255,245,220,.35),transparent 65%),linear-gradient(140deg,#C8B870,#A09048 50%,#5A4A28);}
-/* To add a real photo: .ph-v2r1 { background-image: url('/assets/images/v2r1-name.jpg'); background-size:cover; background-position:center; } */
-
 .stats{display:flex;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:16px;}
 .stat{flex:1;padding:10px 8px;border-right:1px solid var(--rule-soft);text-align:center;}
 .stat:last-child{border-right:none;}
@@ -177,8 +181,9 @@ h2.rec-title em{font-style:italic;color:var(--wine);}
 .method-list li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:'Instrument Serif',serif;font-style:italic;font-size:12px;color:var(--wine);}
 .method-list li strong{color:var(--ink);font-weight:700;}
 .th{font-size:8.5px;color:var(--saffron);font-weight:600;letter-spacing:.06em;margin-left:3px;}
-.cooks-note{margin-top:13px;padding-top:11px;border-top:1px solid var(--saffron);display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;}
-.cn-lbl{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:var(--wine);line-height:1.55;white-space:nowrap;}
+/* Cook's Note — canonical V4 */
+.cooks-note{margin-top:13px;padding-top:11px;border-top:1px solid var(--saffron);display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;}
+.cn-lbl{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:var(--wine);line-height:1;white-space:nowrap;padding-top:1px;}
 .cn-txt{font-size:9.5px;line-height:1.55;color:var(--muted);font-style:italic;}
 
 /* FOOTER */
@@ -186,7 +191,9 @@ footer{padding:60px 32px 52px;text-align:center;border-top:1px solid var(--rule)
 .footer-mark{font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--wine);margin-bottom:7px;}
 .footer-meta{font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--olive);}
 
-/* COOK MODE */
+/* ============================================================
+   COOK MODE
+   ============================================================ */
 .cook-overlay{display:none;position:fixed;inset:0;z-index:400;background:rgba(234,217,199,.97);backdrop-filter:blur(16px);overflow-y:auto;flex-direction:column;}
 .cook-overlay.active{display:flex;}
 .cook-bar{position:sticky;top:0;z-index:10;background:rgba(234,217,199,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule-soft);padding:12px 22px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
@@ -202,10 +209,12 @@ footer{padding:60px 32px 52px;text-align:center;border-top:1px solid var(--rule)
 .cook-step-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:11px;color:var(--saffron);letter-spacing:.06em;text-transform:uppercase;margin-bottom:13px;}
 .cook-step-text{font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:20px;}
 .cook-step-text strong{color:var(--wine);font-weight:700;}
+/* Ingredients panel */
 .cook-ing{background:rgba(205,165,89,.08);border:1px solid rgba(205,165,89,.22);border-radius:2px;padding:12px 16px;margin-bottom:18px;}
 .cook-ing-lbl{font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);margin-bottom:9px;}
 .cook-ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px 14px;font-size:10px;line-height:1.6;}
 .cook-ing-grid .qi{color:var(--saffron);font-weight:600;margin-right:5px;}
+/* Timer */
 .cook-timer{background:rgba(31,54,88,.06);border:1px solid rgba(31,54,88,.13);border-radius:3px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
 .cook-timer svg{width:18px;height:18px;color:var(--wine);flex-shrink:0;}
 .timer-body{flex:1;}
@@ -219,6 +228,7 @@ footer{padding:60px 32px 52px;text-align:center;border-top:1px solid var(--rule)
 .tb-reset:hover{color:var(--ink);border-color:var(--ink);}
 @keyframes tPulse{0%,100%{background:rgba(31,54,88,.06);}50%{background:rgba(205,165,89,.22);}}
 .tdone{animation:tPulse .6s ease-in-out 3;}
+/* Nav */
 .cook-nav{display:flex;gap:9px;justify-content:space-between;align-items:center;}
 .cnbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:var(--wine);color:var(--card);font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:none;border-radius:100px;cursor:pointer;transition:all .18s;}
 .cnbtn:hover{background:var(--fire);}
@@ -263,23 +273,26 @@ footer{padding:60px 32px 52px;text-align:center;border-top:1px solid var(--rule)
 </div>
 
 <main>
-  <div class="view active" id="indexView">
-    <div class="index-hero ani">
-      <div class="index-eyebrow">A Vegetarian Fusion Series</div>
-      <div class="index-orn"></div>
-      <div class="index-glyph">❦</div>
-      <h1 class="index-title">Crossroads</h1>
-      <p class="index-sub">One curated pairing every two weeks — an appetizer, two drinks, a main, and a dessert drawn from five kitchens at the crossroads.</p>
-    </div>
-    <div class="vols-grid" id="volsGrid"></div>
+
+<div class="view active" id="indexView">
+  <div class="index-hero ani">
+    <div class="index-eyebrow">A Vegetarian Fusion Series</div>
+    <div class="index-orn"></div>
+    <div class="index-glyph">❦</div>
+    <h1 class="index-title">Crossroads</h1>
+    <p class="index-sub">One curated pairing every two weeks — an appetizer, two drinks, a main, and a dessert drawn from five kitchens at the crossroads.</p>
   </div>
-  <div class="view" id="volView">
-    <div id="volContent"></div>
-    <footer>
-      <div class="footer-mark">— fin —</div>
-      <div class="footer-meta" id="footerMeta"></div>
-    </footer>
-  </div>
+  <div class="vols-grid" id="volsGrid"></div>
+</div>
+
+<div class="view" id="volView">
+  <div id="volContent"></div>
+  <footer>
+    <div class="footer-mark">— fin —</div>
+    <div class="footer-meta" id="footerMeta"></div>
+  </footer>
+</div>
+
 </main>
 
 <div class="cook-overlay" id="cookOverlay">
@@ -296,153 +309,178 @@ footer{padding:60px 32px 52px;text-align:center;border-top:1px solid var(--rule)
   </div>
 </div>
 
-<!-- ============================================================
-     DATA — loaded from data/volumes.js
-     To update content: edit data/volumes.js only.
-     Do not add recipe data here.
-     ============================================================ -->
-<script src="data/volumes.js"></script>
-
 <script>
-/* ── Eastern Arabic numerals ── */
-const EA = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
-function ea(n){ return String(n).split('').map(d => EA[+d]).join(''); }
+const EA=['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+function ea(n){return String(n).split('').map(d=>EA[+d]).join('');}
 
-/* ── Cook mode state ── */
-let CS = { steps:[], idx:0, name:'', sec:0, running:false, iv:null, ings:[] };
+/* ============ DATA ============ */
+const VOLS=[
+{num:1,released:true,releaseDate:'Jan 5',title:'New Year,',titleEm:'New Table',theme:'Bright, fresh, and optimistic — a clean start after the holidays',occasion:'New Year',cuisines:['Thai','Mediterranean','Indian','Mexican','Italian'],
+recipes:[
+{id:'v1r1',course:'Appetizer',courseSub:'Starters & Snacks',title:'Lemongrass Hummus',titleEm:'with Crispy Chickpeas',cuisines:['Thai','Mediterranean'],
+deck:'Silky hummus gets a Thai lift from lemongrass, lime, ginger, and coconut milk, then returns to the Mediterranean table with tahini, cumin, and a crown of chili-cumin crispy chickpeas.',ph:'ph1',
+stats:[{l:'Serves',v:'<em>6–8</em>'},{l:'Active',v:'<em>25</em> min'},{l:'Total',v:'<em>45</em> min'},{l:'Ahead',v:'<em>3</em> days'}],
+ings:[{sub:'Crispy chickpeas',items:[['240 g','cooked chickpeas, very dry'],['1½ tbsp','olive oil'],['¾ tsp','ground cumin'],['½ tsp','Kashmiri chili powder'],['½ tsp','kosher salt'],['¼ tsp','lime zest']]},
+{sub:'Lemongrass hummus',items:[['2 stalks','lemongrass, tender core only'],['3 tbsp','lime juice + 1 tbsp lemon juice'],['1 clove','garlic'],['1 tsp','ginger, grated'],['480 g','cooked chickpeas'],['75 g','tahini'],['60 ml','full-fat coconut milk'],['45 ml','extra-virgin olive oil'],['1 tsp','ground cumin'],['¾ tsp','kosher salt']]},
+{sub:'To serve',items:[['—','warm pita or pita chips'],['—','cilantro, mint, sesame seeds'],['—','sliced Thai chili, lime wedges']]}],
+steps:[
+{t:'<strong>Bake the crispy chickpeas.</strong> Heat oven to 210°C (425°F). Toss very dry chickpeas with olive oil, cumin, Kashmiri chili powder, and salt on a sheet pan. Roast 22–28 min, shaking once, until deeply golden. Sprinkle lime zest while hot.',sec:1500},
+{t:'<strong>Prep the lemongrass.</strong> Peel away the tough outer layers to reach the pale tender core. Thinly slice only the bottom 10–12 cm, then mince very finely — about 2 tablespoons.',sec:null},
+{t:'<strong>Make the lemongrass paste.</strong> In a mini food processor, blend the lemongrass, lime juice, lemon juice, garlic, and ginger until as smooth as possible. Add 1 tbsp coconut milk to help the blades catch.',sec:null},
+{t:'<strong>Process the hummus.</strong> In a food processor, combine chickpeas, tahini, lemongrass paste, coconut milk, olive oil, cumin, and salt. Process 1 minute, then scrape the bowl.',sec:60},
+{t:'<strong>Blend until silky.</strong> With the machine running, drizzle in 2 tbsp ice water. Continue 2–3 minutes, adding more water 1 tbsp at a time, until very smooth, pale, and spoonable.',sec:180},
+{t:'<strong>Rest and adjust.</strong> Let the hummus sit 10 minutes so the lemongrass settles. Taste and adjust with more salt, lime, or lemon juice.',sec:600},
+{t:'<strong>Plate and serve.</strong> Swoosh into a shallow bowl, drizzle with olive oil. Pile on crispy chickpeas, scatter cilantro, mint, chili, sesame seeds, and a squeeze of lime. Serve with warm pita.',sec:null}],
+note:'Use only the tender inner core of the lemongrass — the outer layers stay fibrous regardless. Lemongrass and lime bring the Thai side through aroma, not heat. Coconut milk softens the tahini without turning the dip sweet or soupy.'},
 
-/* ══════════════════════════════════════════════════════════════
-   RENDER INDEX
-   ══════════════════════════════════════════════════════════════ */
+{id:'v1r2',course:'Non-Alcoholic',courseSub:'Drinks',title:'Tamarind-Mint',titleEm:'Cooler',cuisines:['Indian','Mexican'],
+deck:'Tangy tamarind, fresh mint, lime, roasted cumin, and jaggery shake into a cooler that lands between Indian imli pani and a Mexican agua fresca — sweet-sour, gently salty, built for lots of ice.',ph:'ph2',
+stats:[{l:'Serves',v:'<em>4–6</em>'},{l:'Active',v:'<em>15</em> min'},{l:'Total',v:'<em>20</em> min'},{l:'Ahead',v:'<em>2</em> days'}],
+ings:[{sub:'Tamarind-mint base',items:[['720 ml','cold water, divided'],['90 g','tamarind concentrate'],['55 g','jaggery or brown sugar'],['2 tbsp','lime juice + zest'],['¾ tsp','roasted ground cumin'],['½ tsp','kosher salt'],['¼ tsp','chaat masala, optional'],['1 cup','fresh mint leaves'],['½ cup','cilantro, tender stems'],['1','serrano, seeded (optional)']]},
+{sub:'To serve',items:[['480 ml','cold sparkling or still water'],['—','ice and lime wedges'],['—','fresh mint leaves'],['½ tsp','Tajín or flaky salt for rim']]}],
+steps:[
+{t:'<strong>Dissolve the base.</strong> Combine 240 ml water, tamarind concentrate, jaggery, lime juice and zest, roasted cumin, salt, and chaat masala in a small saucepan. Warm over medium-low 2–3 min, stirring, until sugar dissolves. Do not boil.',sec:180},
+{t:'<strong>Cool slightly.</strong> Pour into a blender with the remaining 480 ml cold water. Wait 5 minutes so the herbs stay bright when blended.',sec:300},
+{t:'<strong>Blend with herbs.</strong> Add mint, cilantro, and serrano if using. Blend until very smooth and green-flecked, 30–45 seconds.',sec:45},
+{t:'<strong>Strain and season.</strong> Strain through a fine-mesh sieve into a pitcher. Adjust with lime, sugar, salt, or cold water — it should be tart, sweet, and slightly concentrated.',sec:null},
+{t:'<strong>Chill.</strong> Refrigerate at least 30 minutes until very cold. Stir before serving — tamarind settles.',sec:1800},
+{t:'<strong>Serve.</strong> Stir cold sparkling water into the pitcher just before pouring. Fill ice-packed glasses, garnish with mint and a lime wedge.',sec:null}],
+note:'Add sparkling water only right before serving so the bubbles stay lively. Taste cold, over ice — balance shifts with temperature. For a stronger drink, use 360 ml sparkling; for a lighter cooler, use the full 480 ml.'},
+
+{id:'v1r3',course:'Cocktail',courseSub:'Drinks',title:'Lemongrass-Lime',titleEm:'Mojito',cuisines:['Thai','Mexican'],
+deck:'Fresh mint, white rum, lime, and soda keep the mojito familiar and crisp, while a quick lemongrass syrup pulls it toward Thai limeade territory — cold, aromatic, and citrus-bright.',ph:'ph3',
+stats:[{l:'Makes',v:'<em>1</em> cocktail'},{l:'Syrup',v:'<em>1 week</em>'},{l:'Active',v:'<em>15</em> min'},{l:'Batch',v:'serves <em>6</em>'}],
+ings:[{sub:'Lemongrass syrup (6 drinks)',items:[['120 ml','water'],['100 g','granulated sugar'],['2 stalks','lemongrass, bruised and sliced'],['1 tsp','lime zest'],['⅛ tsp','kosher salt']]},
+{sub:'Per cocktail',items:[['8','fresh mint leaves'],['2','lime wedges'],['30 ml','lemongrass syrup, chilled'],['22 ml','fresh lime juice'],['60 ml','white rum'],['—','crushed ice'],['90–120 ml','cold club soda']]}],
+steps:[
+{t:'<strong>Make the lemongrass syrup.</strong> Combine water, sugar, sliced bruised lemongrass, lime zest, and salt in a small saucepan. Warm over medium, stirring, until sugar dissolves and syrup just steams, 3–4 minutes.',sec:240},
+{t:'<strong>Steep.</strong> Remove from heat, cover, steep 15 minutes. The syrup should smell citrusy and herbal, not cooked or woody.',sec:900},
+{t:'<strong>Strain and chill.</strong> Strain through a fine-mesh sieve into a jar, pressing the lemongrass lightly. Refrigerate at least 30 minutes, or chill in an ice bath.',sec:1800},
+{t:'<strong>Optional rim.</strong> Rub the rim of a highball glass with a lime wedge and dip lightly into a sugar-salt mixture. Keep it delicate.',sec:null},
+{t:'<strong>Muddle.</strong> In the glass, combine mint leaves, 2 lime wedges, and chilled lemongrass syrup. Muddle gently 5–6 times — bruise the mint, do not shred it.',sec:null},
+{t:'<strong>Build.</strong> Add lime juice and rum. Stir 5 seconds. Fill with crushed ice, top with 90–120 ml club soda, stir once gently from the bottom.',sec:null},
+{t:'<strong>Serve.</strong> Garnish with a lime wheel, mint sprig, and a lemongrass stalk. Serve immediately while the mint is bright and the bubbles are lively.',sec:null}],
+note:'Mojito should land bright, cool, and lightly sweet. If your limes are sharp, use the full 30 ml syrup. Batch for 6: combine ¾ cup syrup, 9 tbsp lime juice, and 1½ cups white rum; muddle fresh mint and lime in each glass, top with ice and soda.'},
+
+{id:'v1r4',course:'Main',courseSub:'Mains & Hearths',title:'Thai Green Curry',titleEm:'Risotto with Crispy Tofu',cuisines:['Thai','Italian'],
+deck:'Coconut-lemongrass risotto built like an Italian classic, scented like a Thai green curry — arborio stirred with curry paste, coconut milk, lime, and Thai basil, crowned with golden crispy tofu and fried shallots.',ph:'ph4',
+stats:[{l:'Serves',v:'<em>4</em>'},{l:'Active',v:'<em>45</em> min'},{l:'Total',v:'<em>1 hr 10</em>'},{l:'Heat',v:'<em>Medium</em>'}],
+ings:[{sub:'Crispy tofu',items:[['400 g','extra-firm tofu, pressed and cubed'],['1 tbsp','soy sauce + 1 tbsp lime juice'],['1 tsp','sesame oil + 1 tsp maple syrup'],['1 small clove','garlic, grated'],['2 tsp','cornstarch'],['2 tbsp','neutral oil']]},
+{sub:'Risotto base',items:[['1 liter','low-sodium vegetable stock'],['400 ml','full-fat coconut milk, divided'],['2 stalks','lemongrass, tender core, minced'],['2 tbsp','butter + 1 tbsp neutral oil'],['1 shallot + 3 cloves garlic','finely diced / minced'],['1 tbsp','fresh ginger, grated'],['2–3 tbsp','vegetarian Thai green curry paste'],['300 g','arborio rice'],['120 ml','dry white wine']]},
+{sub:'To finish',items:[['60 g','vegetarian parmesan-style cheese'],['1 tbsp','butter + lime juice + lime zest'],['½ cup','Thai basil, torn'],['¼ cup','cilantro leaves'],['½ cup','crispy fried shallots'],['1 tbsp','toasted sesame seeds']]}],
+steps:[
+{t:'<strong>Marinate the tofu.</strong> Pat cubed tofu very dry. Whisk soy sauce, lime juice, sesame oil, maple syrup, and grated garlic. Toss tofu and let sit 15 minutes (or refrigerate up to 24 hours).',sec:900},
+{t:'<strong>Warm the coconut stock.</strong> Combine vegetable stock, 300 ml coconut milk, and minced lemongrass in a saucepan. Bring to a gentle simmer, reduce to low, keep warm. Reserve the remaining 100 ml coconut milk.',sec:null},
+{t:'<strong>Crisp the tofu.</strong> Toss marinated tofu with 2 tsp cornstarch. Heat 2 tbsp oil in a large skillet over medium-high. Cook tofu in a single layer, turning every 2 minutes, 8–10 minutes until golden on most sides. Set aside.',sec:600},
+{t:'<strong>Start the risotto.</strong> Melt butter with oil in a wide heavy pot over medium. Add shallot; cook 3–4 min until translucent. Add garlic and ginger; cook 1 minute more.',sec:240},
+{t:'<strong>Bloom the curry paste.</strong> Stir in green curry paste; cook until glossy and fragrant, about 1 minute. Add arborio rice; stir constantly 2 minutes until every grain is slicked with curry butter.',sec:120},
+{t:'<strong>Deglaze with wine.</strong> Pour in white wine; stir until almost fully absorbed, 1–2 minutes.',sec:120},
+{t:'<strong>Cook the risotto.</strong> Add warm coconut stock one ladle at a time, stirring often, letting each addition mostly absorb before adding the next. Continue 18–22 minutes until the rice is al dente and the texture is loose and creamy.',sec:1200},
+{t:'<strong>Enrich.</strong> Stir in salt, soy sauce, a pinch of brown sugar, and the reserved 100 ml coconut milk. Cook 1–2 minutes more. The risotto should flow slowly when you drag a spoon through it.',sec:90},
+{t:'<strong>Finish off heat.</strong> Remove from heat. Stir in parmesan-style cheese, butter, lime juice, lime zest, Thai basil, and cilantro. Taste; adjust with more salt or lime.',sec:null},
+{t:'<strong>Serve immediately.</strong> Spoon into warm shallow bowls. Top with crispy tofu, fried shallots, toasted sesame seeds, and sliced chili. Serve with lime wedges.',sec:null}],
+note:'Risotto should move — when spooned into a bowl it settles into a soft wave, not a mound. Coconut milk thickens as it sits; finish slightly looser than you think. Look for a vegetarian Thai green curry paste — many traditional versions contain shrimp paste.'},
+
+{id:'v1r5',course:'Dessert',courseSub:'Sweets & Endings',title:'Cardamom-Pistachio',titleEm:'Tiramisu',cuisines:['Italian','Indian'],
+deck:'Classic tiramisu gets a mithai-shop glow — ladyfingers dipped in cardamom-scented coffee, layered with egg-free mascarpone-pistachio cream, finished with cocoa, toasted pistachios, and an optional trace of rose.',ph:'ph5',
+stats:[{l:'Serves',v:'<em>8–10</em>'},{l:'Active',v:'<em>45</em> min'},{l:'Chill',v:'<em>8+</em> hrs'},{l:'Ahead',v:'<em>2</em> days'}],
+ings:[{sub:'Cardamom-coffee soak',items:[['300 ml','strong espresso or coffee, hot'],['50 g','sugar'],['6','green cardamom pods, crushed'],['1 pinch','kosher salt'],['1 tbsp','rose water (optional)']]},
+{sub:'Pistachio-mascarpone cream',items:[['225 g','mascarpone, cold'],['240 ml','cold heavy cream'],['115 g','plain whole-milk Greek yogurt'],['75 g','unsweetened pistachio paste'],['65 g','powdered sugar'],['½ tsp','ground cardamom + 1 tsp vanilla']]},
+{sub:'Assembly & finishing',items:[['220–250 g','crisp savoiardi / ladyfingers (~24)'],['25 g','unsweetened cocoa powder'],['50 g','pistachios, toasted and chopped'],['—','dried rose petals (optional)']]}],
+steps:[
+{t:'<strong>Steep the coffee soak.</strong> Combine hot espresso, sugar, crushed cardamom pods, and salt. Stir until sugar dissolves, then steep 15 minutes so cardamom perfumes the coffee.',sec:900},
+{t:'<strong>Strain and cool.</strong> Remove cardamom pods. Stir in rose water if using. Cool to room temperature — do not dip savoiardi in hot coffee or they will collapse.',sec:null},
+{t:'<strong>Make the cream base.</strong> Whisk cold mascarpone, Greek yogurt, pistachio paste, powdered sugar, vanilla, ground cardamom, and salt until smooth and pale green. Scrape the bowl well.',sec:null},
+{t:'<strong>Whip the cream.</strong> In a separate bowl, whip cold heavy cream to medium peaks — it should hold soft lines but still look plush, not stiff or grainy.',sec:null},
+{t:'<strong>Fold together.</strong> Stir one-third of the whipped cream into the mascarpone mixture to loosen. Fold in the remaining cream gently until airy and evenly green.',sec:null},
+{t:'<strong>Anchor the dish.</strong> Spread a thin spoonful of cream across the bottom of a 20×20 cm dish to hold the first layer.',sec:null},
+{t:'<strong>First layer.</strong> Dip half the savoiardi quickly in the cooled soak, about 1 second per side. Arrange snugly. Spread half the cream over the top; dust with cocoa; scatter half the pistachios.',sec:null},
+{t:'<strong>Second layer.</strong> Dip remaining savoiardi in the soak, layer over the cream. Spread remaining cream in an even layer.',sec:null},
+{t:'<strong>Chill.</strong> Cover and refrigerate at least 8 hours or up to 2 days. The savoiardi need time to absorb the coffee and soften into sliceable layers.',sec:null},
+{t:'<strong>Finish and serve.</strong> Dust with remaining cocoa. Scatter with pistachios, rose petals, and a pinch of ground cardamom if you want the aroma more pronounced.',sec:null}],
+note:'Mascarpone brings body, whipped cream brings air, Greek yogurt brings tang, and pistachio paste adds flavor and structure — the result slices cleanly without a custard. Use crisp savoiardi, not soft sponge-cake ladyfingers; dryness is what lets them absorb the soak without collapsing.'}
+]},
+
+{num:2,released:false,releaseDate:'Jan 19',title:'Slow Sunday',titleEm:'Warmth',theme:'Cozy, layered flavors for cold January weekends',occasion:'Midwinter',cuisines:['Indian','Italian','Mexican','Thai'],recipes:[]},
+{num:3,released:false,releaseDate:'Feb 2',title:'Love at the',titleEm:'Crossroads',theme:'Romantic and indulgent — elegant enough for Valentine\'s Day',occasion:"Valentine's Day",cuisines:['Italian','Indian','Middle Eastern','French'],recipes:[]},
+{num:4,released:false,releaseDate:'Feb 16',title:'Smoke',titleEm:'& Simmer',theme:'Bold warming spice blends for the last stretch of winter',occasion:'Late Winter',cuisines:['North African','Mexican','Indian','Italian'],recipes:[]},
+{num:5,released:false,releaseDate:'Mar 2',title:'First Green',titleEm:'Things',theme:'Spring herbs and bright flavors as the season turns',occasion:'Early Spring',cuisines:['Indian','Italian','Thai','Japanese'],recipes:[]},
+{num:6,released:false,releaseDate:'Mar 16',title:'The Persian',titleEm:'Garden',theme:'Florals, saffron, and citrus — inspired by Nowruz',occasion:'Nowruz / Spring Equinox',cuisines:['Persian','Middle Eastern','Mexican','Indian'],recipes:[]},
+{num:7,released:false,releaseDate:'Mar 30',title:'Spring',titleEm:'Fling',theme:'Light, crunchy, and playful — a menu that feels like a Sunday market',occasion:'Spring',cuisines:['Indian','Mexican','Korean','Italian'],recipes:[]},
+{num:8,released:false,releaseDate:'Apr 13',title:'Earth',titleEm:'& Green',theme:'Earthy vegetables and umami-forward pairings for spring',occasion:'Earth Day Season',cuisines:['Middle Eastern','Indian','Japanese','Italian'],recipes:[]},
+{num:9,released:false,releaseDate:'Apr 27',title:'Fiesta',titleEm:'at Dusk',theme:'Festive and vibrant — a Cinco de Mayo week celebration',occasion:'Cinco de Mayo',cuisines:['Indian','Mexican','Middle Eastern'],recipes:[]},
+{num:10,released:false,releaseDate:'May 11',title:'Long Afternoon',titleEm:'Light',theme:'Bright and breezy — for lingering late spring meals outdoors',occasion:'Late Spring',cuisines:['Greek','Italian','Vietnamese','Thai'],recipes:[]},
+{num:11,released:false,releaseDate:'May 25',title:'The Grill',titleEm:'Adjacent',theme:'Bold smoky flavors for Memorial Day weekend',occasion:'Memorial Day',cuisines:['Indian','Mexican','Italian','Argentinian'],recipes:[]},
+{num:12,released:false,releaseDate:'Jun 8',title:'Rooftop',titleEm:'Hours',theme:'Cool, light, and refreshing — perfect for summer evenings',occasion:'Early Summer',cuisines:['Mexican','Italian','Indian','Filipino'],recipes:[]},
+{num:13,released:false,releaseDate:'Jun 22',title:'Midsummer',titleEm:'Night',theme:'Warm nights, tropical notes, and a festive summer spirit',occasion:'Summer Solstice',cuisines:['Indian','Thai','Mexican','Filipino'],recipes:[]},
+{num:14,released:false,releaseDate:'Jul 6',title:'Red, White',titleEm:'& Global',theme:'A patriotic party palette remixed with global flair',occasion:'4th of July',cuisines:['Thai','Mexican','Indian','Cajun'],recipes:[]},
+{num:15,released:false,releaseDate:'Jul 20',title:'Peak Summer',titleEm:'Heat',theme:'Maximum summer — bright acid, chili heat, cold drinks',occasion:'Mid Summer',cuisines:['Thai','Mexican','Indian','Korean'],recipes:[]},
+{num:16,released:false,releaseDate:'Aug 3',title:'Late Summer',titleEm:'Abundance',theme:'Celebrating peak produce — tomatoes, corn, stone fruit',occasion:'Late Summer',cuisines:['Italian','Indian','Thai','Mexican'],recipes:[]},
+{num:17,released:false,releaseDate:'Aug 17',title:'Back-to-School',titleEm:'Sundays',theme:'Comforting, crowd-pleasing, and easy to share',occasion:'Back to School',cuisines:['Indian','Thai','Japanese'],recipes:[]},
+{num:18,released:false,releaseDate:'Aug 31',title:'Golden',titleEm:'Hour',theme:'The amber warmth of September — harvest flavors arriving',occasion:'Labor Day',cuisines:['Italian','Indian','Moroccan','British'],recipes:[]},
+{num:19,released:false,releaseDate:'Sep 14',title:'Harvest',titleEm:'Table',theme:'Autumn spices, root vegetables, and warming lentils',occasion:'Mid Fall',cuisines:['Indian','Greek','Mexican','Moroccan'],recipes:[]},
+{num:20,released:false,releaseDate:'Sep 28',title:'Spiced',titleEm:'& Candlelit',theme:'Cozy evenings with deep spice blends and slow-cooked warmth',occasion:'Fall Equinox',cuisines:['Indian','Italian','Middle Eastern'],recipes:[]},
+{num:21,released:false,releaseDate:'Oct 12',title:'Trick',titleEm:'or Treat',theme:'Fun, dramatic, and a little spooky — for Halloween entertaining',occasion:'Halloween',cuisines:['Indian','Mexican','Thai','Middle Eastern'],recipes:[]},
+{num:22,released:false,releaseDate:'Oct 26',title:'Autumn',titleEm:'Richness',theme:'Nutty, warming, and deeply satisfying — peak fall comfort',occasion:'Late Fall',cuisines:['Mexican','Japanese','Indian','American'],recipes:[]},
+{num:23,released:false,releaseDate:'Nov 9',title:'Gratitude',titleEm:'Feast',theme:'A global take on the abundance of Thanksgiving week',occasion:'Thanksgiving',cuisines:['Indian','Mexican','Middle Eastern'],recipes:[]},
+{num:24,released:false,releaseDate:'Nov 23',title:'Holiday',titleEm:'Prelude',theme:'Rich and celebratory — the December entertaining season begins',occasion:'Holiday Season Opener',cuisines:['Indian','Italian','Middle Eastern','Persian'],recipes:[]},
+{num:25,released:false,releaseDate:'Dec 7',title:'Solstice',titleEm:'Gathering',theme:'Festive, warming, and suited for holiday parties',occasion:'Winter Solstice',cuisines:['Indian','Mexican','Italian','Japanese'],recipes:[]},
+{num:26,released:false,releaseDate:'Dec 21',title:"Year's End",titleEm:'Indulgence',theme:'Luxurious and celebratory — close out the year in style',occasion:"Christmas / New Year's Eve",cuisines:['Greek','Italian','Indian','Middle Eastern'],recipes:[]}
+];
+
+/* ============ COOK STATE ============ */
+let CS={steps:[],idx:0,name:'',sec:0,running:false,iv:null,ings:[]};
+
+/* ============ INDEX ============ */
 function renderIndex(){
-  document.getElementById('volsGrid').innerHTML = VOLS.map(v => {
-    const n = ea(v.num);
-    const pills = v.cuisines.slice(0,3).map((c,i) =>
-      (i ? '<span class="vc-pill-x">×</span>' : '') + `<span class="vc-pill">${c}</span>`
-    ).join('');
-
+  document.getElementById('volsGrid').innerHTML=VOLS.map(v=>{
+    const n=ea(v.num);
+    const pills=v.cuisines.slice(0,3).map((c,i)=>(i?'<span class="vc-pill-x">×</span>':'')+`<span class="vc-pill">${c}</span>`).join('');
     if(v.released){
-      const rows = v.recipes.map(r =>
-        `<div class="vc-course">
-           <span class="vc-course-lbl">${r.course}</span>
-           <span class="vc-course-name">${r.title} ${r.titleEm}</span>
-         </div>`
-      ).join('');
-      return `<div class="vc-outer">
-        <div class="vc-inner" onclick="openVol(${v.num-1})">
-          <div class="vc-folio">
-            <span class="vc-folio-l">Volume ${n}</span>
-            <span class="vc-folio-r">${v.occasion}</span>
-          </div>
-          <div class="vc-pills">${pills}</div>
-          <h2 class="vc-title">${v.title} <em>${v.titleEm}</em></h2>
-          <p class="vc-deck">${v.theme}</p>
-          ${rows.length ? `<div class="vc-courses">${rows}</div>` : ''}
-          <div class="vc-note"><span class="vc-note-lbl">Open</span></div>
-        </div>
-      </div>`;
+      const rows=v.recipes.map(r=>`<div class="vc-course"><span class="vc-course-lbl">${r.course}</span><span class="vc-course-name">${r.title} ${r.titleEm}</span></div>`).join('');
+      return `<div class="vc-outer"><div class="vc-inner" onclick="openVol(${v.num-1})">
+        <div class="vc-folio"><span class="vc-folio-l">Volume ${n}</span><span class="vc-folio-r">${v.occasion}</span></div>
+        <div class="vc-pills">${pills}</div>
+        <h2 class="vc-title">${v.title} <em>${v.titleEm}</em></h2>
+        <p class="vc-deck">${v.theme}</p>
+        <div class="vc-courses">${rows}</div>
+        <div class="vc-note"><span class="vc-note-lbl">Open —</span><span class="vc-note-txt">five recipes with cook mode and built-in timers</span></div>
+      </div></div>`;
     } else {
-      return `<div class="vc-outer">
-        <div class="vc-inner locked">
-          <div class="vc-folio">
-            <span class="vc-folio-l">Volume ${n}</span>
-            <span class="vc-folio-r">${v.occasion}</span>
-          </div>
-          <div class="vc-pills">${pills}</div>
-          <h2 class="vc-title">${v.title} <em>${v.titleEm}</em></h2>
-          <p class="vc-deck">${v.theme}</p>
-        </div>
-        <div class="vc-lock">
-          <div class="vc-lock-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-          </div>
-          <div class="vc-lock-date">Available ${v.releaseDate}</div>
-        </div>
-      </div>`;
+      return `<div class="vc-outer"><div class="vc-inner locked">
+        <div class="vc-folio"><span class="vc-folio-l">Volume ${n}</span><span class="vc-folio-r">${v.occasion}</span></div>
+        <div class="vc-pills">${pills}</div>
+        <h2 class="vc-title">${v.title} <em>${v.titleEm}</em></h2>
+        <p class="vc-deck">${v.theme}</p>
+      </div>
+      <div class="vc-lock"><div class="vc-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="vc-lock-date">Available ${v.releaseDate}</div></div></div>`;
     }
   }).join('');
 }
 
-/* ══════════════════════════════════════════════════════════════
-   OPEN VOLUME
-   ══════════════════════════════════════════════════════════════ */
-const ROM   = ['I','II','III','IV','V'];
-const DIV_T = ['To <em>Begin</em>','Something to <em>Sip</em>','With <em>Spirits</em>','The Main <em>Event</em>','A Sweet <em>End</em>'];
-const DIV_B = [
-  'the opening salvo — bites that wake the table up',
-  'cold, refreshing, no proof required',
-  'shaken, stirred, and laced with spice',
-  'the center of the table — creamy, fragrant, deeply satisfying',
-  'where cardamom meets everything it loves'
-];
+/* ============ OPEN VOLUME ============ */
+const ROM=['I','II','III','IV','V'];
+const DIV_T=['To <em>Begin</em>','Something to <em>Sip</em>','With <em>Spirits</em>','The Main <em>Event</em>','A Sweet <em>End</em>'];
+const DIV_B=['the opening salvo — bites that wake the table up','cold, refreshing, no proof required','shaken, stirred, and laced with spice','the center of the table — creamy, fragrant, deeply satisfying','where cardamom meets everything it loves'];
 
 function openVol(idx){
-  const v = VOLS[idx];
-  if(!v.released) return;
-  const n = ea(v.num);
-  document.getElementById('barLbl').textContent = `Vol. ${n}`;
-  document.getElementById('backBtn').style.display = 'inline-flex';
+  const v=VOLS[idx]; if(!v.released)return;
+  const n=ea(v.num);
+  document.getElementById('barLbl').textContent=`Vol. ${n}`;
+  document.getElementById('backBtn').style.display='inline-flex';
+  document.getElementById('footerMeta').textContent=`Volume ${n} · ${v.recipes.length} Recipes · ${v.occasion}`;
 
-  /* Empty volume — show coming-soon cover */
-  if(!v.recipes || v.recipes.length === 0){
-    document.getElementById('footerMeta').textContent = `Volume ${n} · ${v.occasion} · Coming Soon`;
-    document.getElementById('volContent').innerHTML = `
-      <div class="vc-cover-wrap">
-        <div class="vc-cover-frame">
-          <div class="vc-cover-body">
-            <div class="vc-cover-content ani">
-              <p class="vc-cover-eyebrow">A Vegetarian Fusion Volume · No.&nbsp;${String(v.num).padStart(2,'0')}</p>
-              <div class="vc-cover-glyph">❦</div>
-              <h1 class="vc-cover-title">${v.title} <em>${v.titleEm}</em></h1>
-              <p class="vc-cover-sub">${v.theme}</p>
-              <div class="vc-cover-rule"></div>
-              <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;color:var(--muted);margin-top:24px;">
-                Recipes arriving ${v.releaseDate}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>`;
-    showView('volView');
-    window.scrollTo(0,0);
-    return;
-  }
-
-  document.getElementById('footerMeta').textContent = `Volume ${n} · ${v.recipes.length} Recipes · ${v.occasion}`;
-
-  /* TOC */
-  const tocItems = v.recipes.map((r,i) => `
+  const tocItems=v.recipes.map((r,i)=>`
     <li class="toc-item" onclick="jumpTo('${r.id}')">
-      <div class="toc-row">
-        <span class="toc-roman">${ROM[i]}.</span>
-        <span class="toc-name">${r.title} <em>${r.titleEm}</em></span>
-        <span class="toc-pgn">0${i+1}</span>
-      </div>
+      <div class="toc-row"><span class="toc-roman">${ROM[i]}.</span><span class="toc-name">${r.title} <em>${r.titleEm}</em></span><span class="toc-pgn">0${i+1}</span></div>
       <p class="toc-tag">${r.cuisines.join(' × ')} · ${r.course}</p>
-    </li>`
-  ).join('');
+    </li>`).join('');
 
-  /* Recipe blocks */
-  const recBlocks = v.recipes.map((r,i) => {
-    const stHtml   = r.stats.map(s =>
-      `<div class="stat"><div class="stat-label">${s.l}</div><div class="stat-val">${s.v}</div></div>`
-    ).join('');
-    const ingHtml  = r.ings.map(g =>
-      `<p class="ing-sub">${g.sub}</p>
-       <ul class="ing-list">${g.items.map(([q,nm]) =>
-         `<li><span class="qty">${q}</span><span>${nm}</span></li>`
-       ).join('')}</ul>`
-    ).join('');
-    const stepHtml = r.steps.map(s =>
-      `<li>${s.t}${s.sec ? `<span class="th">⏱ ${fmt(s.sec)}</span>` : ''}</li>`
-    ).join('');
-    const pillsHtml = r.cuisines.map((c,ci) =>
-      (ci ? '<span class="pill-x">×</span>' : '') + `<span class="pill">${c}</span>`
-    ).join('');
-
+  const recBlocks=v.recipes.map((r,i)=>{
+    const stHtml=r.stats.map(s=>`<div class="stat"><div class="stat-label">${s.l}</div><div class="stat-val">${s.v}</div></div>`).join('');
+    const ingHtml=r.ings.map(g=>`<p class="ing-sub">${g.sub}</p><ul class="ing-list">${g.items.map(([q,n])=>`<li><span class="qty">${q}</span><span>${n}</span></li>`).join('')}</ul>`).join('');
+    const stepHtml=r.steps.map(s=>`<li>${s.t}${s.sec?`<span class="th">⏱ ${fmt(s.sec)}</span>`:''}</li>`).join('');
+    const pillsHtml=r.cuisines.map((c,ci)=>(ci?'<span class="pill-x">×</span>':'')+`<span class="pill">${c}</span>`).join('');
     return `
       <div class="ch-div-wrap" id="${r.id}">
         <div class="ch-div-card">
@@ -455,210 +493,124 @@ function openVol(idx){
       <div class="rec-wrap">
         <div class="rec-pg">
           <div class="rec-card">
-            <div class="folio">
-              <span class="folio-l">${r.course} · ${r.courseSub}</span>
-              <span class="folio-r">Recipe №&nbsp;${String(i+1).padStart(2,'0')} · Vol.&nbsp;${n}</span>
-            </div>
+            <div class="folio"><span class="folio-l">${r.course} · ${r.courseSub}</span><span class="folio-r">Recipe №&nbsp;${String(i+1).padStart(2,'0')} · Vol.&nbsp;${n}</span></div>
             <div class="pills">${pillsHtml}</div>
             <h2 class="rec-title">${r.title} <em>${r.titleEm}</em></h2>
             <p class="deck">${r.deck}</p>
             <div class="photo-block ${r.ph}"></div>
             <div class="stats">${stHtml}</div>
             <button class="start-btn" onclick="openCook('${r.id}',${idx})">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               Start This Recipe
             </button>
             <div class="body-grid">
               <div><h3 class="col-h">Ingredients</h3>${ingHtml}</div>
               <div><h3 class="col-h">Method</h3><ol class="method-list">${stepHtml}</ol></div>
             </div>
-            <div class="cooks-note">
-              <span class="cn-lbl">Cook's Note —</span>
-              <p class="cn-txt">${r.note}</p>
-            </div>
+            <div class="cooks-note"><span class="cn-lbl">Cook's Note —</span><p class="cn-txt">${r.note}</p></div>
           </div>
         </div>
       </div>`;
   }).join('');
 
-  const cu = [...new Set(v.recipes.flatMap(r => r.cuisines))].length;
-
-  document.getElementById('volContent').innerHTML = `
-    <div class="vc-cover-wrap">
-      <div class="vc-cover-frame">
-        <div class="vc-cover-body">
-          <div class="vc-cover-content ani">
-            <p class="vc-cover-eyebrow">A Vegetarian Fusion Volume · No.&nbsp;${String(v.num).padStart(2,'0')}</p>
-            <div class="vc-cover-glyph">❦</div>
-            <h1 class="vc-cover-title">${v.title} <em>${v.titleEm}</em></h1>
-            <p class="vc-cover-sub">${v.theme}</p>
-            <div class="vc-cover-rule"></div>
-            <div class="vc-cover-stats">
-              <div><div class="vc-stat-num">${ea(v.recipes.length)}</div><div class="vc-stat-lbl">Recipes</div></div>
-              <div><div class="vc-stat-num">${ea(cu)}</div><div class="vc-stat-lbl">Cuisines</div></div>
-              <div><div class="vc-stat-num">${ea(4)}</div><div class="vc-stat-lbl">Courses</div></div>
-              <div><div class="vc-stat-num" style="font-family:'Instrument Serif',serif;font-style:italic">${n}</div><div class="vc-stat-lbl">Volume</div></div>
-            </div>
-          </div>
-        </div>
+  const cu=[...new Set(v.recipes.flatMap(r=>r.cuisines))].length;
+  document.getElementById('volContent').innerHTML=`
+    <div class="vc-cover-wrap"><div class="vc-cover-frame"><div class="vc-cover-body"><div class="vc-cover-content ani">
+      <p class="vc-cover-eyebrow">A Vegetarian Fusion Volume · No.&nbsp;${String(v.num).padStart(2,'0')}</p>
+      <div class="index-glyph">❦</div>
+      <h1 class="vc-cover-title">${v.title} <em>${v.titleEm}</em></h1>
+      <p class="vc-cover-sub">${v.theme}</p>
+      <div class="vc-cover-rule"></div>
+      <div class="vc-cover-stats">
+        <div><div class="vc-stat-num">${v.recipes.length}</div><div class="vc-stat-lbl">Recipes</div></div>
+        <div><div class="vc-stat-num">${cu}</div><div class="vc-stat-lbl">Cuisines</div></div>
+        <div><div class="vc-stat-num">4</div><div class="vc-stat-lbl">Courses</div></div>
+        <div><div class="vc-stat-num" style="font-family:'Instrument Serif',serif;font-style:italic">${n}</div><div class="vc-stat-lbl">Volume</div></div>
       </div>
-    </div>
-    <div class="toc-wrap">
-      <div class="toc-pg">
-        <p class="toc-eyebrow">In This Volume</p>
-        <h2 class="toc-h">Contents</h2>
-        <ul class="toc-list">${tocItems}</ul>
-        <div class="toc-foot">
-          <span>${v.recipes.length === 1 ? 'One recipe' : v.recipes.length + ' recipes'}</span>
-          <span><em>${v.occasion}</em></span>
-        </div>
-      </div>
-    </div>
+    </div></div></div></div>
+    <div class="toc-wrap"><div class="toc-pg">
+      <p class="toc-eyebrow">In This Volume</p>
+      <h2 class="toc-h">Contents</h2>
+      <ul class="toc-list">${tocItems}</ul>
+      <div class="toc-foot"><span>Five recipes</span><span><em>${v.occasion}</em></span></div>
+    </div></div>
     ${recBlocks}`;
-
   showView('volView');
   window.scrollTo(0,0);
 }
 
-/* ── Navigation helpers ── */
-function jumpTo(id){
-  const el = document.getElementById(id);
-  if(el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
-}
-function showIndex(){
-  document.getElementById('barLbl').textContent = 'Pairing Cards';
-  document.getElementById('backBtn').style.display = 'none';
-  showView('indexView');
-  window.scrollTo(0,0);
-}
-function showView(id){
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+function jumpTo(id){const el=document.getElementById(id);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'});}
+function showIndex(){document.getElementById('barLbl').textContent='Pairing Cards';document.getElementById('backBtn').style.display='none';showView('indexView');window.scrollTo(0,0);}
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
-/* ══════════════════════════════════════════════════════════════
-   COOK MODE
-   ══════════════════════════════════════════════════════════════ */
-function openCook(rid, vi){
-  const r = VOLS[vi].recipes.find(x => x.id === rid);
-  if(!r) return;
-  CS = { steps: r.steps, idx: 0, name: `${r.title} ${r.titleEm}`, sec: 0, running: false, iv: null, ings: r.ings };
-  document.getElementById('cookTitleEl').textContent = CS.name;
+/* ============ COOK MODE ============ */
+function openCook(rid,vi){
+  const r=VOLS[vi].recipes.find(x=>x.id===rid);if(!r)return;
+  CS={steps:r.steps,idx:0,name:`${r.title} ${r.titleEm}`,sec:0,running:false,iv:null,ings:r.ings};
+  document.getElementById('cookTitleEl').textContent=CS.name;
   renderStep();
   document.getElementById('cookOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-function closeCook(){
-  clearInterval(CS.iv); CS.running = false;
-  document.getElementById('cookOverlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
+function closeCook(){clearInterval(CS.iv);CS.running=false;document.getElementById('cookOverlay').classList.remove('active');document.body.style.overflow='';}
 
-function fmt(s){ if(!s||s<=0) return '0:00'; return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
+function fmt(s){if(!s||s<=0)return'0:00';return`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;}
 
 function renderStep(){
-  const { steps, idx, ings } = CS;
-  const step = steps[idx];
-  const tot  = steps.length;
-  const pct  = tot > 1 ? Math.round(idx / (tot-1) * 100) : 100;
-  document.getElementById('cookStepLbl').textContent = `${idx+1} / ${tot}`;
-  document.getElementById('cookFill').style.width = pct + '%';
-  clearInterval(CS.iv); CS.running = false; CS.sec = step.sec || 0;
+  const{steps,idx,ings}=CS;const step=steps[idx];const tot=steps.length;
+  const pct=tot>1?Math.round(idx/(tot-1)*100):100;
+  document.getElementById('cookStepLbl').textContent=`${idx+1} / ${tot}`;
+  document.getElementById('cookFill').style.width=pct+'%';
+  clearInterval(CS.iv);CS.running=false;CS.sec=step.sec||0;
 
-  const allI = ings.flatMap(g => g.items);
-  const ingBlock = idx === 0
-    ? `<div class="cook-ing">
-         <div class="cook-ing-lbl">Ingredients at a Glance</div>
-         <div class="cook-ing-grid">
-           ${allI.map(([q,nm]) => `<div><span class="qi">${q}</span>${nm}</div>`).join('')}
-         </div>
-       </div>`
-    : '';
+  const allI=ings.flatMap(g=>g.items);
+  const ingBlock=idx===0?`<div class="cook-ing"><div class="cook-ing-lbl">Ingredients at a Glance</div><div class="cook-ing-grid">${allI.map(([q,n])=>`<div><span class="qi">${q}</span>${n}</div>`).join('')}</div></div>`:'';
 
-  const timerBlock = step.sec
-    ? `<div class="cook-timer" id="ctB">
-         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-           <circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/>
-         </svg>
-         <div class="timer-body">
-           <div class="timer-disp" id="ctD">${fmt(step.sec)}</div>
-           <div class="timer-hlbl">Timer · ${fmt(step.sec)}</div>
-         </div>
-         <div class="timer-btns">
-           <button class="tbtn tb-start" id="ctBtn" onclick="togTimer(${step.sec})">Start</button>
-           <button class="tbtn tb-reset" onclick="resetTimer(${step.sec})">Reset</button>
-         </div>
-       </div>`
-    : '';
+  const timerBlock=step.sec?`<div class="cook-timer" id="ctB">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="timer-body"><div class="timer-disp" id="ctD">${fmt(step.sec)}</div><div class="timer-hlbl">Timer · ${fmt(step.sec)}</div></div>
+    <div class="timer-btns"><button class="tbtn tb-start" id="ctBtn" onclick="togTimer(${step.sec})">Start</button><button class="tbtn tb-reset" onclick="resetTimer(${step.sec})">Reset</button></div>
+  </div>`:'';
 
-  const last = idx === tot - 1;
-  document.getElementById('cookContent').innerHTML = `
-    <div class="cook-card">
-      <div class="cook-step-num">Step ${String(idx+1).padStart(2,'0')} of ${String(tot).padStart(2,'0')}</div>
-      ${ingBlock}
-      <p class="cook-step-text">${step.t}</p>
-      ${timerBlock}
-      <div class="cook-nav">
-        <button class="cnbtn prev" onclick="prevStep()" ${idx===0 ? 'disabled' : ''}>← Previous</button>
-        ${last
-          ? `<button class="cnbtn done" onclick="closeCook()">✓ All Done!</button>`
-          : `<button class="cnbtn" onclick="nextStep()">Next Step →</button>`}
-      </div>
-    </div>`;
+  const last=idx===tot-1;
+  document.getElementById('cookContent').innerHTML=`<div class="cook-card">
+    <div class="cook-step-num">Step ${String(idx+1).padStart(2,'0')} of ${String(tot).padStart(2,'0')}</div>
+    ${ingBlock}
+    <p class="cook-step-text">${step.t}</p>
+    ${timerBlock}
+    <div class="cook-nav">
+      <button class="cnbtn prev" onclick="prevStep()" ${idx===0?'disabled':''}>← Previous</button>
+      ${last?`<button class="cnbtn done" onclick="closeCook()">✓ All Done!</button>`:`<button class="cnbtn" onclick="nextStep()">Next Step →</button>`}
+    </div>
+  </div>`;
 }
-function nextStep(){ if(CS.idx < CS.steps.length-1){ CS.idx++; renderStep(); } }
-function prevStep(){ if(CS.idx > 0){ CS.idx--; renderStep(); } }
+function nextStep(){if(CS.idx<CS.steps.length-1){CS.idx++;renderStep();}}
+function prevStep(){if(CS.idx>0){CS.idx--;renderStep();}}
 
 function togTimer(orig){
-  if(CS.running){
-    clearInterval(CS.iv); CS.running = false;
-    const b = document.getElementById('ctBtn'); if(b) b.textContent = 'Resume';
-  } else {
-    if(CS.sec <= 0) CS.sec = orig;
-    CS.running = true;
-    const b = document.getElementById('ctBtn'); if(b) b.textContent = 'Pause';
-    CS.iv = setInterval(() => {
+  if(CS.running){clearInterval(CS.iv);CS.running=false;const b=document.getElementById('ctBtn');if(b)b.textContent='Resume';}
+  else{
+    if(CS.sec<=0)CS.sec=orig;CS.running=true;
+    const b=document.getElementById('ctBtn');if(b)b.textContent='Pause';
+    CS.iv=setInterval(()=>{
       CS.sec--;
-      const d = document.getElementById('ctD'); if(d) d.textContent = fmt(CS.sec);
-      if(CS.sec <= 0){
-        clearInterval(CS.iv); CS.running = false;
-        const b2 = document.getElementById('ctBtn'); if(b2) b2.textContent = 'Done!';
-        const blk = document.getElementById('ctB');
-        if(blk){ blk.classList.add('tdone'); setTimeout(() => blk.classList.remove('tdone'), 2000); }
-        try {
-          const ctx = new (window.AudioContext || window.webkitAudioContext)();
-          [0, .28, .56].forEach(t => {
-            const o = ctx.createOscillator(), g = ctx.createGain();
-            o.connect(g); g.connect(ctx.destination);
-            o.frequency.value = 660; o.type = 'sine';
-            g.gain.setValueAtTime(.28, ctx.currentTime + t);
-            g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + t + .3);
-            o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + .35);
-          });
-        } catch(e){}
+      const d=document.getElementById('ctD');if(d)d.textContent=fmt(CS.sec);
+      if(CS.sec<=0){
+        clearInterval(CS.iv);CS.running=false;
+        const b2=document.getElementById('ctBtn');if(b2)b2.textContent='Done!';
+        const blk=document.getElementById('ctB');if(blk){blk.classList.add('tdone');setTimeout(()=>blk.classList.remove('tdone'),2000);}
+        try{const ctx=new(window.AudioContext||window.webkitAudioContext)();[0,.28,.56].forEach(t=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=660;o.type='sine';g.gain.setValueAtTime(.28,ctx.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+t+.3);o.start(ctx.currentTime+t);o.stop(ctx.currentTime+t+.35);});}catch(e){}
       }
-    }, 1000);
+    },1000);
   }
 }
-function resetTimer(orig){
-  clearInterval(CS.iv); CS.running = false; CS.sec = orig;
-  const d = document.getElementById('ctD'); if(d) d.textContent = fmt(orig);
-  const b = document.getElementById('ctBtn'); if(b) b.textContent = 'Start';
-}
+function resetTimer(orig){clearInterval(CS.iv);CS.running=false;CS.sec=orig;const d=document.getElementById('ctD');if(d)d.textContent=fmt(orig);const b=document.getElementById('ctBtn');if(b)b.textContent='Start';}
 
-/* ── Scroll: hide/show top bar ── */
-let ly = 0;
-window.addEventListener('scroll', () => {
-  const y = window.pageYOffset;
-  document.getElementById('topBar').classList.toggle('hidden', y > ly && y > 200);
-  ly = y;
-});
+/* scroll bar */
+let ly=0;
+window.addEventListener('scroll',()=>{const y=window.pageYOffset;document.getElementById('topBar').classList.toggle('hidden',y>ly&&y>200);ly=y;});
 
-/* ── Boot ── */
 renderIndex();
 </script>
-
 </body>
 </html>
