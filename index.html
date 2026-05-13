@@ -57,7 +57,9 @@ main{position:relative;z-index:1;}
 .index-title{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;font-size:clamp(52px,8vw,92px);line-height:.92;letter-spacing:-.02em;margin:0 0 16px;color:var(--ink);}
 .index-sub{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(14px,1.8vw,17px);line-height:1.45;color:var(--muted);max-width:36ch;margin:0 auto;}
 
-.vols-grid{padding:0 32px 100px;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:18px;}
+.vols-grid{padding:0 32px 100px;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:18px;grid-auto-rows:1fr;align-items:stretch;}
+.vc-outer{height:100%;display:flex;flex-direction:column;}
+.vc-inner{flex:1;}
 
 /* Volume card — inner V4 .card with .palette bg */
 .vc-outer{background:var(--bg);border-radius:2px;position:relative;overflow:hidden;}
@@ -77,7 +79,7 @@ main{position:relative;z-index:1;}
 .vc-course{display:grid;grid-template-columns:64px 1fr;gap:7px;font-size:10px;}
 .vc-course-lbl{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);padding-top:1px;}
 .vc-course-name{color:var(--ink);line-height:1.35;}
-.vc-note{border-top:1px solid var(--saffron);padding-top:9px;display:grid;grid-template-columns:auto 1fr;gap:9px;}
+.vc-note{border-top:1px solid var(--saffron);padding-top:9px;display:flex;align-items:baseline;gap:6px;margin-top:auto;}
 .vc-note-lbl{font-family:'Instrument Serif',serif;font-style:italic;font-size:13px;color:var(--wine);white-space:nowrap;padding-top:1px;}
 .vc-note-txt{font-size:9.5px;line-height:1.55;color:var(--muted);font-style:italic;}
 /* Lock overlay */
@@ -181,7 +183,7 @@ h2.rec-title em{font-style:italic;color:var(--wine);}
 .method-list li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:'Instrument Serif',serif;font-style:italic;font-size:12px;color:var(--wine);}
 .method-list li strong{color:var(--ink);font-weight:700;}
 .th{font-size:8.5px;color:var(--saffron);font-weight:600;letter-spacing:.06em;margin-left:3px;}
-/* Cook's Note — canonical V4 */
+/* Chef's Note — canonical V4 */
 .cooks-note{margin-top:13px;padding-top:11px;border-top:1px solid var(--saffron);display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;}
 .cn-lbl{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:var(--wine);line-height:1;white-space:nowrap;padding-top:1px;}
 .cn-txt{font-size:9.5px;line-height:1.55;color:var(--muted);font-style:italic;}
@@ -276,11 +278,11 @@ footer{padding:60px 32px 52px;text-align:center;border-top:1px solid var(--rule)
 
 <div class="view active" id="indexView">
   <div class="index-hero ani">
-    <div class="index-eyebrow">A Vegetarian Fusion Series</div>
+    <div class="index-eyebrow">A Fusion Series</div>
     <div class="index-orn"></div>
     <div class="index-glyph">❦</div>
     <h1 class="index-title">Crossroads</h1>
-    <p class="index-sub">One curated pairing every two weeks — an appetizer, two drinks, a main, and a dessert drawn from five kitchens at the crossroads.</p>
+    <p class="index-sub">One curated pairing every two weeks — an appetizer, two drinks, a main, and a dessert drawn from kitchens across the World.</p>
   </div>
   <div class="vols-grid" id="volsGrid"></div>
 </div>
@@ -466,9 +468,10 @@ const DIV_B=['the opening salvo — bites that wake the table up','cold, refresh
 function openVol(idx){
   const v=VOLS[idx]; if(!v.released)return;
   const n=ea(v.num);
-  document.getElementById('barLbl').textContent=`Vol. ${n}`;
+  const num=v.num;
+  document.getElementById('barLbl').textContent=`Vol. ${num}`;
   document.getElementById('backBtn').style.display='inline-flex';
-  document.getElementById('footerMeta').textContent=`Volume ${n} · ${v.recipes.length} Recipes · ${v.occasion}`;
+  document.getElementById('footerMeta').textContent=`Volume ${num} · ${v.recipes.length} Recipes · ${v.occasion}`;
 
   const tocItems=v.recipes.map((r,i)=>`
     <li class="toc-item" onclick="jumpTo('${r.id}')">
@@ -493,7 +496,7 @@ function openVol(idx){
       <div class="rec-wrap">
         <div class="rec-pg">
           <div class="rec-card">
-            <div class="folio"><span class="folio-l">${r.course} · ${r.courseSub}</span><span class="folio-r">Recipe №&nbsp;${String(i+1).padStart(2,'0')} · Vol.&nbsp;${n}</span></div>
+            <div class="folio"><span class="folio-l">${r.course} · ${r.courseSub}</span><span class="folio-r">Recipe №&nbsp;${String(i+1).padStart(2,'0')} · Vol.&nbsp;${num}</span></div>
             <div class="pills">${pillsHtml}</div>
             <h2 class="rec-title">${r.title} <em>${r.titleEm}</em></h2>
             <p class="deck">${r.deck}</p>
@@ -507,7 +510,7 @@ function openVol(idx){
               <div><h3 class="col-h">Ingredients</h3>${ingHtml}</div>
               <div><h3 class="col-h">Method</h3><ol class="method-list">${stepHtml}</ol></div>
             </div>
-            <div class="cooks-note"><span class="cn-lbl">Cook's Note —</span><p class="cn-txt">${r.note}</p></div>
+            <div class="cooks-note"><span class="cn-lbl">Chef's Note —</span><p class="cn-txt">${r.note}</p></div>
           </div>
         </div>
       </div>`;
@@ -516,7 +519,7 @@ function openVol(idx){
   const cu=[...new Set(v.recipes.flatMap(r=>r.cuisines))].length;
   document.getElementById('volContent').innerHTML=`
     <div class="vc-cover-wrap"><div class="vc-cover-frame"><div class="vc-cover-body"><div class="vc-cover-content ani">
-      <p class="vc-cover-eyebrow">A Vegetarian Fusion Volume · No.&nbsp;${String(v.num).padStart(2,'0')}</p>
+      <p class="vc-cover-eyebrow">A Fusion Volume · No.&nbsp;${String(num).padStart(2,'0')}</p>
       <div class="index-glyph">❦</div>
       <h1 class="vc-cover-title">${v.title} <em>${v.titleEm}</em></h1>
       <p class="vc-cover-sub">${v.theme}</p>
@@ -525,7 +528,7 @@ function openVol(idx){
         <div><div class="vc-stat-num">${v.recipes.length}</div><div class="vc-stat-lbl">Recipes</div></div>
         <div><div class="vc-stat-num">${cu}</div><div class="vc-stat-lbl">Cuisines</div></div>
         <div><div class="vc-stat-num">4</div><div class="vc-stat-lbl">Courses</div></div>
-        <div><div class="vc-stat-num" style="font-family:'Instrument Serif',serif;font-style:italic">${n}</div><div class="vc-stat-lbl">Volume</div></div>
+        <div><div class="vc-stat-num" style="font-family:'Instrument Serif',serif;font-style:italic">${num}</div><div class="vc-stat-lbl">Volume</div></div>
       </div>
     </div></div></div></div>
     <div class="toc-wrap"><div class="toc-pg">
